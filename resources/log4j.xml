@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--DOCTYPE log4j:configuration SYSTEM "log4j-1.2.dtd"-->
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p]\t[%d{HH:mm:ss}] %C.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	<appender name="LOCAL_FILEAPPENDER" class="org.apache.log4j.RollingFileAppender">
+		<param name="encoding" value="UTF-8" />
+		<param name="append" value="false" />
+		<param name="file" value="../../../../logs/sample_spring-log4j.log" />
+		<param name="maxFileSize" value="10MB" />
+		<param name="maxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p [%d{yyyy-MM-dd HH:mm:ss}] %C.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="org.springframework">
+		<level value="INFO" />
+	</logger>
+
+	<logger name="org.springframework.jdbc">
+		<level value="DEBUG" />
+	</logger>
+
+	<logger name="org.springframework.web.servlet">
+		<level value="DEBUG" />
+	</logger>
+
+	<logger name="org.exolab.castor.xml">
+		<level value="DEBUG" />
+	</logger>
+
+	<logger name="com.loggar">
+		<level value="DEBUG" />
+	</logger>
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+		<!-- <appender-ref ref="LOCAL_FILEAPPENDER" /> -->
+	</root>
+</log4j:configuration>

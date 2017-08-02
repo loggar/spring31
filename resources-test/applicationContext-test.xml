@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- spring bean scan -->
+	<context:component-scan base-package="com.loggar">
+		<context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation" />
+	</context:component-scan>
+	
+	<!-- property-placeholder at this context -->
+	<context:property-placeholder location="classpath:/database.mysql.test.properties" />
+
+	<!-- datasource -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${database.driverClass}" />
+		<property name="url" value="${database.url}" />
+		<property name="username" value="${database.username}" />
+		<property name="password" value="${database.password}" />
+	</bean>
+
+	<!-- transaction -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- mail sender -->
+	<bean id="mailSenderDummy" class="com.loggar.service.mail.MailSenderDummy">
+		<property name="host" value="localhost" />
+		<property name="port" value="587" />
+		<property name="username" value="mailuser" />
+		<property name="password" value="mailuserpwd" />
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="localhost" />
+		<property name="port" value="587" />
+		<property name="username" value="mailuser" />
+		<property name="password" value="mailuserpwd" />
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
+
+	<bean id="mailSenderTransaction" class="com.loggar.service.mail.MailSenderTransaction">
+		<property name="mailSender" ref="mailSenderDummy" />
+	</bean>
+</beans>
