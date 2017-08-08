@@ -5,4 +5,4 @@
 .classpath
 **/WEB-INF/classes
 **/WEB-INF/lib
-_doc
+/_doc/
