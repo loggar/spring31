@@ -7,7 +7,6 @@ import java.util.Collection;
 
 /**
  * Reflection Utils
- * @author loggar
  *
  */
 public class LoggarReflectionUtil {

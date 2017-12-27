@@ -15,7 +15,6 @@ import com.loggar.user.member.MemberService;
 
 /**
  * login password check
- * @author loggar
  *
  */
 @Component("loginValidator")

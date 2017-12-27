@@ -12,8 +12,6 @@ import org.junit.Test;
 /**
  * JUnit 이 매 "@Test" 마다 새로운 테스트 Instance 를 생성하는지 에 대한 JUnit TEST
  * 
- * @author Loggar
- * 
  */
 public class _01_JUnitInstanceTest {
 	static Set<_01_JUnitInstanceTest> testObjects = new HashSet<_01_JUnitInstanceTest>();

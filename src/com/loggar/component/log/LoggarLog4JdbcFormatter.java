@@ -9,8 +9,6 @@ import net.sf.log4jdbc.tools.LoggingType;
  * 
  * log4jdbc 사용하지 않음. -> 기능 mybaits interceptor 로 대체.
  * 
- * @author loggar.lee
- *
  */
 public class LoggarLog4JdbcFormatter extends Slf4jSpyLogDelegator {
 	private LoggingType loggingType = LoggingType.DISABLED;

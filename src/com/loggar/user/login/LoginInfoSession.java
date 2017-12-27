@@ -20,8 +20,6 @@ import com.loggar.user.member.Member;
  * - Scope("request") Request Scope : 각 Request 마다 하나의 인스턴스
  * - Scope("prototype") Prototype Scope : 객체를 가져올 때마다 새로운 인스턴스
  * 
- * @author loggar
- *
  */
 @Component
 @Scope("session")

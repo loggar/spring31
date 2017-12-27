@@ -5,7 +5,6 @@ import java.lang.reflect.Type;
 
 /**
  * extract implemented class type from clazz with Generic Card.
- * @author loggar
  *
  */
 public class GenericUtil {

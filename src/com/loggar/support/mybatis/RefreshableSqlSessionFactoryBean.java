@@ -22,7 +22,6 @@ import org.springframework.core.io.Resource;
 
 /**
  * refresh xml mappers without restarting web-applicaton-server, local test.
- * @author loggar.lee
  * 
  * <pre>
  * <beans:bean id="sqlSessionFactory" class="com.koi.support.mybatis.RefreshableSqlSessionFactoryBean">

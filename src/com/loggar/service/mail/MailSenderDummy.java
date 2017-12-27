@@ -9,8 +9,6 @@ import org.springframework.mail.SimpleMailMessage;
 /**
  * Spring MailSender 의 아무행동하지 않는 구현체 테스트 발송용 목적.
  * 
- * @author Loggar
- * 
  */
 public class MailSenderDummy implements MailSender {
 	private static Logger logger = LoggerFactory.getLogger(MailSenderDummy.class);

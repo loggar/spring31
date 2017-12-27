@@ -21,8 +21,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * JUnit 이 "@Autowired" 로 DI 받은 ApplicationContext 가 Singleton 인지 TEST
  * 
- * @author Loggar
- * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("test-junit.xml")

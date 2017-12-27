@@ -8,7 +8,6 @@ import org.springframework.mail.SimpleMailMessage;
 
 /**
  * 다수의 메일을 한번에 전송하거나 취소.
- * @author loggar
  *
  */
 public class MailSenderTransaction {

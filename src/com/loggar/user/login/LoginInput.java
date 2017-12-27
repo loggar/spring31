@@ -4,7 +4,6 @@ import javax.validation.constraints.Size;
 
 /**
  * 사용자 로그인 폼 '@ModelAttribute', '@SessionAttributes' 저장용 도메인
- * @author loggar
  *
  */
 public class LoginInput {
