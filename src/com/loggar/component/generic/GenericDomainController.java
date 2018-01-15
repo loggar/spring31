@@ -56,7 +56,7 @@ public abstract class GenericDomainController<T, S extends GenericService<T>> {
 
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable("id") int id, ModelMap model) {
-		model.addAttribute("view" + this.upperDomainName, service.get(id)); /* 사용자 등록 폼을 저장하는 목적으로 사용하는 '@SessionAttributes("domainName")' 와 구별을 두기위해 viewDomainName 라는 이름으로 model 에 등록 */
+		model.addAttribute("view" + this.upperDomainName, service.get(id)); // 사용자 등록 폼을 저장하는 목적으로 사용하는 '@SessionAttributes("domainName")' 와 구별을 두기위해 viewDomainName 라는 이름으로 model 에 등록
 		return viewPath + "/" + this.lowerDomainName + "/view";
 	}
 

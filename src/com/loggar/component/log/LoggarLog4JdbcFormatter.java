@@ -7,7 +7,7 @@ import net.sf.log4jdbc.tools.LoggingType;
 /**
  * SQL format for property of net.sf.log4jdbc.Log4jdbcProxyDataSource.
  * 
- * log4jdbc 사용하지 않음. -> 기능 mybaits interceptor 로 대체.
+ * log4jdbc is not being used. mybaits interceptor will be used.
  * 
  */
 public class LoggarLog4JdbcFormatter extends Slf4jSpyLogDelegator {
@@ -16,13 +16,11 @@ public class LoggarLog4JdbcFormatter extends Slf4jSpyLogDelegator {
 
 	@Override
 	public String sqlOccured(Spy spy, String methodCall, String rawSql) {
-		if (loggingType == LoggingType.DISABLED) return "";
-
-		
-		if (loggingType != LoggingType.MULTI_LINE) return rawSql.replaceAll("\r", "").replaceAll("\n", "");
-
+		if (loggingType == LoggingType.DISABLED)
+			return "";
+		if (loggingType != LoggingType.MULTI_LINE)
+			return rawSql.replaceAll("\r", "").replaceAll("\n", "");
 		getSqlOnlyLogger().info(sqlPrefix + rawSql);
-		
 		return rawSql;
 	}
 

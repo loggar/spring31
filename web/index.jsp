@@ -2,6 +2,6 @@
 <html>
 <body>
 	<h1>Hello World!</h1>
-	<p>인코딩 테스트</p>
+	<p>test</p>
 </body>
 </html>
