@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 @Controller
-@RequestMapping("/requestContextUtilTest")
+@RequestMapping("/test/RequestContextUtils")
 public class RequestContextUtilTestController {
 	@RequestMapping("/sample")
 	public void sample(HttpServletRequest request) {

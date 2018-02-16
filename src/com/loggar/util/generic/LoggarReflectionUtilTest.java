@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LoggarReflectionUtilTest {
-	private static Logger logger = LoggerFactory.getLogger(LoggarReflectionUtilTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(LoggarReflectionUtilTest.class);
 	
 	interface InterfaceA {
 		String method1();

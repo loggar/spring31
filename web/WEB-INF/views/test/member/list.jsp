@@ -9,18 +9,15 @@
 <title>test</title>
 <style>
 .formErrMsg {
-    border: 1px solid red;
+	border: 1px solid red;
 }
 </style>
 </head>
 <body>
-    <div class="container">
-        <c:forEach var="member" items="${memberList}">
-            ${member.id }
-            ${member.identi }
-            ${member.name }
-            ${member.password }
-        </c:forEach>
-    </div>
+	<div class="container">
+		<c:forEach var="member" items="${memberList}">
+			${member.id } ${member.identi } ${member.name } ${member.password }
+		</c:forEach>
+	</div>
 </body>
 </html>

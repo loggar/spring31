@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UploadUtil {
-	private static Logger logger = LoggerFactory.getLogger(UploadUtil.class);
+	private static final Logger logger = LoggerFactory.getLogger(UploadUtil.class);
 
 	public static boolean uploadFile(MultipartFile formFile, String realPath, String newFileName) throws IOException {
 		try {

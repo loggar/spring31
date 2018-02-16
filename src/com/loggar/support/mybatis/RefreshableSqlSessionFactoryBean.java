@@ -37,7 +37,7 @@ import org.springframework.core.io.Resource;
  * </pre>
  */
 public class RefreshableSqlSessionFactoryBean extends SqlSessionFactoryBean implements DisposableBean {
-	static final Logger logger = LoggerFactory.getLogger(RefreshableSqlSessionFactoryBean.class);
+	private static final Logger logger = LoggerFactory.getLogger(RefreshableSqlSessionFactoryBean.class);
 
 	private SqlSessionFactory proxy;
 	private int interval = 500;

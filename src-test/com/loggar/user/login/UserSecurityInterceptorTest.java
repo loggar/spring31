@@ -15,13 +15,11 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import com.loggar.component.interceptor.LoginInterceptor;
 
-
-
 public class UserSecurityInterceptorTest {
 	Provider<LoginInfo> loginInfoProvider;
 	LoginInfo loginInfo;
 	LoginInterceptor interceptor;
-	
+
 	@Before
 	@SuppressWarnings("unchecked")
 	public void before() {
@@ -31,13 +29,13 @@ public class UserSecurityInterceptorTest {
 		interceptor = new LoginInterceptor();
 		inject(interceptor, Provider.class, loginInfoProvider);
 	}
-	
+
 	@Test
 	public void securityPass() throws Exception {
 		when(loginInfo.isLoggedIn()).thenReturn(true);
 		assertThat(interceptor.preHandle(null, null, null), is(true));
 	}
-	
+
 	@Test
 	public void securityFail() throws Exception {
 		when(loginInfo.isLoggedIn()).thenReturn(false);

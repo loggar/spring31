@@ -11,7 +11,7 @@ import org.springframework.mail.SimpleMailMessage;
  * 
  */
 public class MailSenderDummy implements MailSender {
-	private static Logger logger = LoggerFactory.getLogger(MailSenderDummy.class);
+	private static final Logger logger = LoggerFactory.getLogger(MailSenderDummy.class);
 	
 	String host;
 	int port;
