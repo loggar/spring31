@@ -25,11 +25,12 @@ public class MultipleFileUploadController {
 
 		List<MultipartFile> files = multipartRequest.getFiles("files");
 
+		int i = 1;
 		for (MultipartFile f : files) {
 			logger.debug("{}, {}", f.getOriginalFilename(), f);
+			model.addAttribute(String.valueOf(i++), f.getOriginalFilename());
 		}
 
-		model.addAllAttributes(files);
 		return model;
 	}
 }
