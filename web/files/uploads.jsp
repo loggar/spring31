@@ -16,8 +16,8 @@
 				console.log($("input[name=files]")[0]);
 				console.log($("input[name=files]")[0].files);
 				var formData = new FormData();
-				jQuery.each($("input[name=files]")[0].files, function(i, file) {
-					formData.append("files", file);
+				$.each($("input[name=files]")[0].files, function(i, file) {
+					formData.append("files_01", file);
 				});
 				$.ajax({
 					url : "${pageContext.request.contextPath }/test/multiple_file_upload/upload_1",

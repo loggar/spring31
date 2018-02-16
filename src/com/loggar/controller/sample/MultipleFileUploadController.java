@@ -23,7 +23,7 @@ public class MultipleFileUploadController {
 	public ModelMap upload_1(ModelMap model, MultipartRequest multipartRequest) {
 		logger.debug("{}", StringUtil.debugMap(multipartRequest.getFileMap()));
 
-		List<MultipartFile> files = multipartRequest.getFiles("files");
+		List<MultipartFile> files = multipartRequest.getFiles("files_01");
 
 		int i = 1;
 		for (MultipartFile f : files) {
