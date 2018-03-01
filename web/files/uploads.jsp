@@ -13,12 +13,16 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("input#btnUpload").click(function() {
-				console.log($("input[name=files]")[0]);
-				console.log($("input[name=files]")[0].files);
+				//console.log($("input[name=files]")[0]);
+				//console.log($("input[name=files]")[0].files);
 				var formData = new FormData();
 				$.each($("input[name=files]")[0].files, function(i, file) {
 					formData.append("files_01", file);
 				});
+				for (var pair of formData.entries()) {
+					console.log(pair[0]);
+					console.log(pair[1]);
+				}
 				$.ajax({
 					url : "${pageContext.request.contextPath }/test/multiple_file_upload/upload_1",
 					type : 'POST',
