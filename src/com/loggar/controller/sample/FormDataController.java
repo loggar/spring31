@@ -16,13 +16,13 @@ public class FormDataController {
 	@ResponseBody
 	public String test1(@RequestParam String[] breaks) {
 		System.out.println(StringUtil.toString(breaks));
-		return "ok";
+		return "test1 ok";
 	}
 
 	@RequestMapping("/test2")
 	@ResponseBody
 	public String test2(@RequestParam("breaks") List<String> breakList) {
 		System.out.println(StringUtil.debugList(breakList));
-		return "ok";
+		return "test2 ok";
 	}
 }

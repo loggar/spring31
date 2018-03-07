@@ -16,9 +16,8 @@
 			for (var i = 0; i < 5; i++) {
 				formData.append("breaks", i);
 			}
-			for (var pair of formData.entries()) {
-				console.log(pair[0]);
-				console.log(pair[1]);
+			for (var [key, value] of formData.entries()) { 
+				console.log(key, value);
 			}
 			$.ajax({
 				url : "${pageContext.request.contextPath }/test/formdata/test1",
