@@ -11,31 +11,36 @@
 		<input name="files" type="file" multiple> <input id="btnUpload" type="button" value="Upload">
 	</div>
 	<script type="text/javascript">
-			$(document).ready(function () {
-				$("input#btnUpload").click(function () {
-					var formData = new FormData();
-
-					for (var i = 0; i < 5; i++) {
-						formData.append("breaks", i);
-					}
-
-					for (var pair of formData.entries()) {
-						console.log(pair[0]);
-						console.log(pair[1]);
-					}
-
-					$.ajax({
-						url: "${pageContext.request.contextPath }/test/formdata/test1",
-						data : formData,
-						type : 'POST',
-						contentType : false,
-						processData : false,
-						success: function (response) {
-							console.log(response);
-						}
-					});
-				});
+		$(document).ready(function() {
+			var formData = new FormData();
+			for (var i = 0; i < 5; i++) {
+				formData.append("breaks", i);
+			}
+			for (var pair of formData.entries()) {
+				console.log(pair[0]);
+				console.log(pair[1]);
+			}
+			$.ajax({
+				url : "${pageContext.request.contextPath }/test/formdata/test1",
+				data : formData,
+				type : 'POST',
+				contentType : false,
+				processData : false,
+				success : function(response) {
+					console.log(response);
+				}
 			});
-		</script>
+			$.ajax({
+				url : "${pageContext.request.contextPath }/test/formdata/test2",
+				data : formData,
+				type : 'POST',
+				contentType : false,
+				processData : false,
+				success : function(response) {
+					console.log(response);
+				}
+			});
+		});
+	</script>
 </body>
 </html>
