@@ -1,8 +1,7 @@
-/build/
-/target/
 .settings
 .project
 .classpath
-**/WEB-INF/classes
-**/WEB-INF/lib
-/_doc/
+/build/
+/target/
+/web/WEB-INF/classes
+/web/WEB-INF/lib
