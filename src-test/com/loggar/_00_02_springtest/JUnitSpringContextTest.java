@@ -24,10 +24,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("test-junit.xml")
-public class _02_JUnitSpringContextTest {
+public class JUnitSpringContextTest {
 	@Autowired ApplicationContext context;
 
-	static Set<_02_JUnitSpringContextTest> testObjects = new HashSet<_02_JUnitSpringContextTest>();
+	static Set<JUnitSpringContextTest> testObjects = new HashSet<JUnitSpringContextTest>();
 	static ApplicationContext contextObject = null;
 
 	@Test
@@ -53,7 +53,7 @@ public class _02_JUnitSpringContextTest {
 		assertThat(testObjects, not(hasItem(this)));
 		testObjects.add(this);
 
-		assertThat(contextObject, either(is(nullValue())).or(is(_02_JUnitSpringContextTest.contextObject)));
+		assertThat(contextObject, either(is(nullValue())).or(is(JUnitSpringContextTest.contextObject)));
 		contextObject = this.context;
 	}
 }
