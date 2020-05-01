@@ -19,7 +19,7 @@ import com.loggar.util.common.SimsConstants;
 import com.loggar.util.common.StringUtil;
 
 public class Schedulers {
-	private static final Logger logger = LoggerFactory.getLogger(SimsSchedulersStaff.class);
+	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Autowired private EnrollStatusService enrollStatusService;
 	@Autowired private CommonCodeDao commonCodeDao;

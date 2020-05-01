@@ -1,5 +1,7 @@
 package com.loggar.service.mail;
 
+import java.lang.invoke.MethodHandles;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;
@@ -11,7 +13,7 @@ import org.springframework.mail.SimpleMailMessage;
  * 
  */
 public class MailSenderDummy implements MailSender {
-	private static final Logger logger = LoggerFactory.getLogger(MailSenderDummy.class);
+	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	
 	String host;
 	int port;

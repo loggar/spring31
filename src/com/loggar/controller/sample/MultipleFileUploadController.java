@@ -1,5 +1,6 @@
 package com.loggar.controller.sample;
 
+import java.lang.invoke.MethodHandles;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,7 +17,7 @@ import com.loggar.util.common.StringUtil;
 @Controller
 @RequestMapping("/test/multiple_file_upload")
 public class MultipleFileUploadController {
-	private static final Logger logger = LoggerFactory.getLogger(MultipleFileUploadController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@RequestMapping("/upload_1")
 	@ResponseBody

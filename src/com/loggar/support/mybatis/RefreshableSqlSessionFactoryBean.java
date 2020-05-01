@@ -1,6 +1,7 @@
 package com.loggar.support.mybatis;
 
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -37,7 +38,7 @@ import org.springframework.core.io.Resource;
  * </pre>
  */
 public class RefreshableSqlSessionFactoryBean extends SqlSessionFactoryBean implements DisposableBean {
-	private static final Logger logger = LoggerFactory.getLogger(RefreshableSqlSessionFactoryBean.class);
+	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	private SqlSessionFactory proxy;
 	private int interval = 500;

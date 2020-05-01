@@ -1,11 +1,13 @@
 package com.loggar.util.generic;
 
+import java.lang.invoke.MethodHandles;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LoggarReflectionUtilTest {
-	private static final Logger logger = LoggerFactory.getLogger(LoggarReflectionUtilTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	
 	interface InterfaceA {
 		String method1();
