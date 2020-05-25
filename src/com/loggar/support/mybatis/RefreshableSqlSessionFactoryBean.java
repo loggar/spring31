@@ -25,7 +25,7 @@ import org.springframework.core.io.Resource;
  * refresh xml mappers without restarting web-applicaton-server, local test.
  * 
  * <pre>
- * <beans:bean id="sqlSessionFactory" class="com.koi.support.mybatis.RefreshableSqlSessionFactoryBean">
+ * <beans:bean id="sqlSessionFactory" class="com.loggar.support.mybatis.RefreshableSqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="configLocation" value="classpath:spring/config/mybatis-config.xml" />
 		<beans:property name="mapperLocations">
