@@ -15,7 +15,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import com.loggar.dao.common.CommonCodeDao;
 import com.loggar.service.enrol.EnrollStatusService;
-import com.loggar.util.common.SimsConstants;
 import com.loggar.util.common.StringUtil;
 
 public class Schedulers {
@@ -49,7 +48,7 @@ public class Schedulers {
 		} else {
 			Map<String, Object> paramMap = new HashMap<>();
 			paramMap.put("trimester", trimester);
-			paramMap.put("delUid", SimsConstants.SIMS_SCHEDULER);
+			paramMap.put("delUid", "USER-ID");
 			int r = enrollStatusService.executeClearEnrolledClassTargets(paramMap);
 			logger.info("Not-Confirmed-Enrolled-Classes Cleard: {}", r);
 		}
