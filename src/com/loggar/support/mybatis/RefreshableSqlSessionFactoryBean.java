@@ -92,13 +92,12 @@ public class RefreshableSqlSessionFactoryBean extends SqlSessionFactoryBean impl
 	}
 
 	private void setRefreshable() {
-		proxy = (SqlSessionFactory) Proxy.newProxyInstance(SqlSessionFactory.class.getClassLoader(),
-				new Class[] { SqlSessionFactory.class }, new InvocationHandler() {
-					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-						// logger.debug("method.getName() : " + method.getName());
-						return method.invoke(getParentObject(), args);
-					}
-				});
+		proxy = (SqlSessionFactory) Proxy.newProxyInstance(SqlSessionFactory.class.getClassLoader(), new Class[] { SqlSessionFactory.class }, new InvocationHandler() {
+			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+				// logger.debug("method.getName() : " + method.getName());
+				return method.invoke(getParentObject(), args);
+			}
+		});
 
 		task = new TimerTask() {
 			private Map<Resource, Long> map = new HashMap<Resource, Long>();
@@ -134,7 +133,7 @@ public class RefreshableSqlSessionFactoryBean extends SqlSessionFactoryBean impl
 					long modified = resource.lastModified();
 
 					if (map.containsKey(resource)) {
-						long lastModified = ((Long) map.get(resource)).longValue();
+						long lastModified = (map.get(resource)).longValue();
 
 						if (lastModified != modified) {
 							map.put(resource, new Long(modified));

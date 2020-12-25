@@ -8,8 +8,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class HandlerInterceptorApplicationBlockExample extends HandlerInterceptorAdapter {
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
 		String redirectUrl = "/auth/underConstruction";
 		boolean block = false;
@@ -20,10 +19,10 @@ public class HandlerInterceptorApplicationBlockExample extends HandlerIntercepto
 
 			if (request.getRequestURI().equals(redirectUrl)) {
 				return true;
-			} else {
-				response.sendRedirect(redirectUrl);
-				return false;
 			}
+
+			response.sendRedirect(redirectUrl);
+			return false;
 		}
 
 		return true;

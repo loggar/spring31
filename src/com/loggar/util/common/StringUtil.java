@@ -109,9 +109,9 @@ public class StringUtil {
 		String result = sb.toString();
 		if (result.length() > 2) {
 			return result.substring(0, result.length() - 2) + "}";
-		} else {
-			return "{}";
 		}
+
+		return "{}";
 	}
 
 	public static <T> String debugList(List<T> list) {
@@ -129,9 +129,9 @@ public class StringUtil {
 		String result = sb.toString();
 		if (result.length() > 2) {
 			return result.substring(0, result.length() - 2) + "]";
-		} else {
-			return "[]";
 		}
+
+		return "[]";
 	}
 
 	public static <T> String debugList(List<T> list, boolean newLine) {
@@ -151,9 +151,9 @@ public class StringUtil {
 		String result = sb.toString();
 		if (result.length() > 2) {
 			return result.substring(0, result.length() - 2) + "]";
-		} else {
-			return "[]";
 		}
+
+		return "[]";
 	}
 
 	public static String join(String delimiter, String[] a) {
@@ -180,17 +180,17 @@ public class StringUtil {
 
 	public static char charLowerCase(char c) {
 		if (c >= 'A' && c <= 'Z') {
-			return (char) ((int) c + 32);
-		} else {
-			return c;
+			return (char) (c + 32);
 		}
+
+		return c;
 	}
 
 	public static char charUpperCase(char c) {
 		if (c >= 'a' && c <= 'z') {
-			return (char) ((int) c - 32);
-		} else {
-			return c;
+			return (char) (c - 32);
 		}
+
+		return c;
 	}
 }

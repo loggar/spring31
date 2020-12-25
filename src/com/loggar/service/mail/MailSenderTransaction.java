@@ -19,12 +19,14 @@ public class MailSenderTransaction {
 	}
 
 	public boolean addMsg(SimpleMailMessage msg) {
-		if (msgList == null) msgList = new ArrayList<SimpleMailMessage>();
+		if (msgList == null)
+			msgList = new ArrayList<SimpleMailMessage>();
 		return msgList.add(msg);
 	}
 
 	public void clearMsg() {
-		if (msgList != null) msgList.clear();
+		if (msgList != null)
+			msgList.clear();
 		msgList = null;
 	}
 
@@ -33,9 +35,10 @@ public class MailSenderTransaction {
 		mailSender.send(msgs);
 		return msgs.length;
 	}
-	
+
 	public boolean isEmpty() {
-		if(msgList == null) return true;
-		else return false;
+		if (msgList == null)
+			return true;
+		return false;
 	}
 }

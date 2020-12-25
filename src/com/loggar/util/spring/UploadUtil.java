@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UploadUtil {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-	public static boolean uploadFile(MultipartFile formFile, String realPath, String newFileName) throws IOException {
+	public static boolean uploadFile(MultipartFile formFile, String realPath, String newFileName) {
 		try {
 			InputStream stream = formFile.getInputStream();
 			OutputStream bos = new FileOutputStream(realPath + newFileName);
@@ -37,25 +37,18 @@ public class UploadUtil {
 		return true;
 	}
 
-	public static String uploadFile(MultipartFile formFile, String realPath) throws IOException {
+	public static String uploadFile(MultipartFile formFile, String realPath) {
 		String newFileName = null;
-		try {
-			java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyyMMddHHmmss");
-			String today = formatter.format(new java.util.Date());
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyyMMddHHmmss");
+		String today = formatter.format(new java.util.Date());
 
-			String[] arrFileList = formFile.getOriginalFilename().split("[.]");
-			int extIndex = arrFileList.length - 1;
-			String ext = arrFileList[extIndex];
-			newFileName = today + '_' + getRandomString(4) + "." + ext;
+		String[] arrFileList = formFile.getOriginalFilename().split("[.]");
+		int extIndex = arrFileList.length - 1;
+		String ext = arrFileList[extIndex];
+		newFileName = today + '_' + getRandomString(4) + "." + ext;
 
-			uploadFile(formFile, realPath, newFileName);
-		} catch (FileNotFoundException e) {
-			logger.error(e.getMessage());
-			return null;
-		} catch (IOException e) {
-			logger.error(e.getMessage());
-			return null;
-		}
+		uploadFile(formFile, realPath, newFileName);
+
 		return newFileName;
 	}
 

@@ -34,7 +34,7 @@ public class FileUtil {
 		return false;
 	}
 
-	public static boolean delFile(String fileName) throws IOException {
+	public static boolean delFile(String fileName) {
 		File f = new File(fileName);
 		if (f.exists())
 			if (f.isFile())
@@ -59,7 +59,7 @@ public class FileUtil {
 		return f.exists();
 	}
 
-	public static boolean makeDirectory(String dirName) throws IOException {
+	public static boolean makeDirectory(String dirName) {
 		File f = new File(dirName);
 		return f.mkdir();
 	}
@@ -78,8 +78,8 @@ public class FileUtil {
 					files[i].delete();
 			}
 			return target.delete();
-		} else {
-			return false;
 		}
+
+		return false;
 	}
 }

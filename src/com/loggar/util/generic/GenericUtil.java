@@ -13,8 +13,8 @@ public class GenericUtil {
 		Type wantedClassType = genericSuperclass.getActualTypeArguments()[index];
 		if (wantedClassType instanceof ParameterizedType) {
 			return (Class<?>) ((ParameterizedType) wantedClassType).getRawType();
-		} else {
-			return (Class<?>) wantedClassType;
 		}
+
+		return (Class<?>) wantedClassType;
 	}
 }

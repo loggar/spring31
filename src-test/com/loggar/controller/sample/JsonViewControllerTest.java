@@ -12,10 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.loggar.support.controller.AbstractDispatcherServletTest;
 
-
 public class JsonViewControllerTest extends AbstractDispatcherServletTest {
 	@Before
-	public void init() throws ServletException, IOException {
+	public void init() {
 		setLocations("applicationContext-test.xml", "webmvc-config-test.xml", "view-config-test.xml");
 	}
 
@@ -24,7 +23,7 @@ public class JsonViewControllerTest extends AbstractDispatcherServletTest {
 		ModelAndView modelAndView = initRequest("/test/json/get.json").addParameter("id", "member1_id").runService().getModelAndView();
 		assertNull(modelAndView.getView());
 	}
-	
+
 	@Test
 	public void getList() throws ServletException, IOException {
 		assertNull(runService("/test/json/getList.json").getModelAndView().getView());

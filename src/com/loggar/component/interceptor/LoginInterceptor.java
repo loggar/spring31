@@ -9,19 +9,15 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.loggar.user.login.LoginInfo;
 
-
 public class LoginInterceptor extends HandlerInterceptorAdapter {
-	@Inject
-	private Provider<LoginInfo> loginInfoProvider; 
+	@Inject private Provider<LoginInfo> loginInfoProvider;
 
-	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler) throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		if (loginInfoProvider.get().isLoggedIn()) {
 			return true;
 		}
-		else {
-			response.sendRedirect(request.getContextPath() + "/test/accessdenied");
-			return false;
-		}
+
+		response.sendRedirect(request.getContextPath() + "/test/accessdenied");
+		return false;
 	}
 }

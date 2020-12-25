@@ -27,41 +27,41 @@ public class LoginController {
 	@Autowired private Validator loginValidator;
 	@Autowired private MemberService memberService;
 	@Autowired private LoginService loginService;
-	
-	@RequestMapping(value="/login", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String showform(ModelMap model) {
 		model.addAttribute(new LoginInput());
 		return "login";
 	}
 
-	@RequestMapping(value="/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute @Valid LoginInput loginInput, BindingResult result, SessionStatus status) {
 		if (result.hasErrors()) {
 			return "./login";
 		}
 
 		this.loginValidator.validate(loginInput, result);
-		
+
 		if (result.hasErrors()) {
 			return "./login";
-		} else {
-			Member member = memberService.getByIdenti(loginInput.getIdenti());
-			member.setPassword("dummyPassword");
-			
-			loginService.login(member);
-			status.setComplete();
-			
-			return "/test/user/loginDone";
 		}
+
+		Member member = memberService.getByIdenti(loginInput.getIdenti());
+		member.setPassword("dummyPassword");
+
+		loginService.login(member);
+		status.setComplete();
+
+		return "/test/user/loginDone";
 	}
-	
-	@RequestMapping(value="/logout")
+
+	@RequestMapping(value = "/logout")
 	public String logout() {
 		loginService.logout();
-		
+
 		return "/test/user/logoutDone";
 	}
-	
+
 	@ExceptionHandler(IllegalStateException.class)
 	public ModelAndView illegalLogout(IllegalStateException ex) {
 		return new ModelAndView("error/logout").addObject("msg", ex.getMessage());
