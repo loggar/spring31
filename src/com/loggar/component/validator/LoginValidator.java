@@ -27,12 +27,12 @@ public class LoginValidator implements Validator {
 	}
 
 	public void validate(Object target, Errors errors) {
-		LoginInput login = (LoginInput)target;
+		LoginInput login = (LoginInput) target;
 		Member member = memberService.getByIdenti(login.getIdenti());
 		if (member == null || !member.getPassword().equals(login.getPassword())) {
 			errors.reject("invalidLogin", "Invalid Login");
 		} else {
-			/* LoginInfo(session-scope bean) 객체를 가져와 currentMember 변경 */
+			/* update currentMember with LoginInfo(session-scope bean) */
 			loginInfoProvider.get().save(member);
 		}
 	}

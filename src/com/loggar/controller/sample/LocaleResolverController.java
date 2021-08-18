@@ -18,7 +18,7 @@ public class LocaleResolverController {
 @Autowired LocaleResolver localeResolver;
 	
 	/**
-	 * request parameter 에 newLocale 이라는 이름의 파라미터가 존재하지 않는경우의 컨트롤러 매핑
+	 * newLocale as a request parameter
 	 * @param request
 	 * @param model
 	 */
