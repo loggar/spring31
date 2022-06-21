@@ -10,7 +10,7 @@
         <apache.commons.version>3.4</apache.commons.version>
         <junit.version>4.13.1</junit.version>
         <dbcp.version>1.4</dbcp.version>
-        <mysqlconnector.version>5.1.38</mysqlconnector.version>
+        <mysqlconnector.version>8.0.28</mysqlconnector.version>
         <spring.version>5.3.2</spring.version>
         <jackson.version>1.9.13</jackson.version>
     </properties>
