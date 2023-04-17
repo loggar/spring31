@@ -11,7 +11,7 @@
         <junit.version>4.13.1</junit.version>
         <dbcp.version>1.4</dbcp.version>
         <mysqlconnector.version>8.0.28</mysqlconnector.version>
-        <spring.version>5.3.26</spring.version>
+        <spring.version>5.3.27</spring.version>
         <jackson.version>1.9.13</jackson.version>
     </properties>
     <build>
